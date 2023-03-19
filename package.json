@@ -21,6 +21,9 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register jest --runInBand"
   },
   "dependencies": {
+    "@mikro-orm/core": "^5.6.15",
+    "@mikro-orm/nestjs": "^5.1.7",
+    "@mikro-orm/postgresql": "^5.6.15",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
