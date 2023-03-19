@@ -22,3 +22,18 @@ SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
+CREATE SEQUENCE public.elec_gen_park_park_id
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+CREATE TABLE public.elec_gen_park (
+    park_id bigint DEFAULT nextval('public.elec_gen_park_park_id'::regclass) NOT NULL,
+    electricity_origin character varying(36) NOT NULL,
+    created_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    PRIMARY KEY(park_id)
+);

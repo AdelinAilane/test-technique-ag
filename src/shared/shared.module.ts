@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import {ParkDao} from "./dao/park.dao";
 
 @Module({
   imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [ParkDao],
+  exports: [ParkDao]
 })
-export class AppModule {}
+export class SharedModule {}
