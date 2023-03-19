@@ -14,6 +14,26 @@ Nous savons aussi que la limite de temps ne vous permettra pas de terminer l'exe
 Nest JS
 PostgreSQL dockerisé
 
+## conception exercice en amont du développement:
+Question : MW est une donnée de puissance, et non une donnée d'énergie comme indiqué dans l'énoncé. Doit-on supposer qu'on parle en MWh, ou calcule-t-on sur une puissance ?
+=> réponse supposée : on suppose qu'on gère de la puissance, et que "la quantité d'energie" veut plutot dire "quantité d'energie à l'heure (~= puissance)"
+(N.B. : 1 MWh correspondant à l'énergie fournie par 1 MW durant 1 heure)
+
+On a 3 marchés. ENUM MARKET_TYPE à prévoir sur réserve primaire, réserve secondaire, réserve rapide
+On a des parcs producteurs d'électricité qui renseignent l'info de combien de MW de puissance est fournie. 
+Enum à prévoir: ELEC_ORIGIN : solaire, éolien, ou hydraulique.
+
+On va pouvoir créer des offres. Chaque offre est réliée aux producteurs d'electricité via des blocs horaires.
+=> A priori 3 tables, offre, parc_producteur, et probablement bloc_horaire.
+
+4 WebService:
+- POST  Créer une offre
+- POST créer un parc
+- GET lister les offres proposées par Agregio pour chaque marché (c'est à dire en /:marketType (pathParam), ou ?marketType=réservePrimaire par exemple)
+- GET lister les parcs qui vendent sur un marche
+
+
+
 ## Installation
 
 ```bash
