@@ -47,7 +47,7 @@ $ docker pull postgres
 
 # Run image with postgres params
 $ docker run --name ag_db -p 5432:5432 -e POSTGRES_DB=ag_db -e POSTGRES_USER=ag_db -e POSTGRES_PASSWORD=ag_db_pwd -d postgres
-
+# and the next time `docker start ag_db`
 # Initialisation Database
 $ npm run initDb
 

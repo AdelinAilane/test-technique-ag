@@ -22,6 +22,7 @@ SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
+/*
 CREATE SEQUENCE public.elec_gen_park_park_id
     START WITH 1
     INCREMENT BY 1
@@ -37,3 +38,4 @@ CREATE TABLE public.elec_gen_park (
     updated_at timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
     PRIMARY KEY(park_id)
 );
+*/

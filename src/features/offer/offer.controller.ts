@@ -26,7 +26,7 @@ export class OfferController {
     @Get(':marketType')
     @ApiOperation({ summary: 'list offers on a market' })
     @UsePipes(new JoiValidationPipe(CreateParkSchema))
-    listParksOnAMarket(@Param() marketType: MarketType) {
+    listParksOnAMarket(@Param('marketType') marketType: MarketType) {
         return this.offerService.listOffers(marketType);
     }
 

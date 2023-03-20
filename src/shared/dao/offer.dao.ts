@@ -21,7 +21,10 @@ export class OfferDao {
     }
 
     async insert(offer: OfferEntity): Promise<OfferEntity> {
-        return this.offerRepository.create(offer)
+        console.log('insert', offer);
+        const result = await this.offerRepository.save(offer);
+        console.log('result', result);
+        return result;
     }
 
 
@@ -31,6 +34,8 @@ export class OfferDao {
         // or if paginated
         // or if filter or sort on timeBlock and park's attributes
 
-        return this.offerRepository.find()
+        const results = await this.offerRepository.find();
+        console.log('results', results);
+        return results;
     }
 }

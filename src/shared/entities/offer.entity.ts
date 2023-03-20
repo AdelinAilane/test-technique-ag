@@ -1,19 +1,31 @@
 import {MarketType} from "../enum/market-type.enum";
 import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
+
 @Entity()
 export class OfferEntity {
     @PrimaryGeneratedColumn()
     public offerId: number;
-    @Column()
+    @Column({ nullable: true, default: new Date().toISOString()})
     public createdAt: string;
-    @Column()
+    @Column({ nullable: true, default: new Date().toISOString()})
     public updatedAt: string;
+    @Column()
+    public marketType: MarketType;
+    @Column()
+    public name: string;
+   // @Column()
+   // public timeBlocksIds: number[];
+
+    //TODO: link offer to timeBlocks
     constructor(
-        public marketType: MarketType,
-        public name: string,
-        public timeBlocksIds: number[]
+        marketType: MarketType,
+        name: string,
+        timeBlocksIds: number[]
         ) {
+        this.marketType = marketType;
+        this.name = name;
+        // this.timeBlocksIds = timeBlocksIds;
     }
 
 }
