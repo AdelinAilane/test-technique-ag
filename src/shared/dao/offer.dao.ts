@@ -2,27 +2,26 @@ import {Injectable} from "@nestjs/common";
 import {ElecGenParkEntity} from "../entities/elec-generating-park.entity";
 import {OfferEntity} from "../entities/offer.entity";
 import {MarketType} from "../enum/market-type.enum";
+import {InjectRepository} from "@nestjs/typeorm";
+import {Repository} from "typeorm";
 
 @Injectable()
 export class OfferDao {
 
-    constructor() {
-
+    constructor(@InjectRepository(OfferEntity) private offerRepository: Repository<OfferEntity>,
+    ) {
     }
 
     async getById(id: number): Promise<OfferEntity> {
-        //TODO: call ORM or db
-        return null;
+        return this.offerRepository.findOne({ where: { offerId: id }})
     }
 
     async getAll(): Promise<OfferEntity[]> {
-        //TODO: call ORM or db
-        return [];
+        return this.offerRepository.find()
     }
 
     async insert(offer: OfferEntity): Promise<OfferEntity> {
-        //TODO: call ORM or db
-        return offer;
+        return this.offerRepository.create(offer)
     }
 
 
@@ -32,6 +31,6 @@ export class OfferDao {
         // or if paginated
         // or if filter or sort on timeBlock and park's attributes
 
-        return Promise.resolve([]);
+        return this.offerRepository.find()
     }
 }
