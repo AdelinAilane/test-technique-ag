@@ -1,5 +1,5 @@
 export enum ElectricityOrigin {
-    SOLAR='SOLAR',
-    WIND='WIND',
-    HYDAULIC='HYDRAULIC'
+    SOLAR ='SOLAR',
+    WIND ='WIND',
+    HYDAULIC ='HYDRAULIC'
 }

@@ -22,6 +22,10 @@ SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
+drop table if exists time_block_entity;
+drop table if exists elec_gen_park_entity;
+drop table if exists offer_entity;
+
 /*
 CREATE SEQUENCE public.elec_gen_park_park_id
     START WITH 1

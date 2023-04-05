@@ -6,6 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: ['error', 'debug', 'log', 'warn'],
   });
+  app.enableCors();
   const config = new DocumentBuilder()
       .setTitle('')
       .setDescription('API for electricity offers handling')
@@ -15,6 +16,6 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3000);
+  await app.listen(3002);
 }
 bootstrap();
