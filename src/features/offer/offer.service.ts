@@ -17,11 +17,7 @@ export class OfferService {
 
   async createOffer(payload: OfferCreationPayload): Promise<OfferEntity> {
     this.logger.log('createOffer ' + JSON.stringify(payload));
-    const entityToInsert = new OfferEntity(
-      payload.marketType,
-      payload.name,
-      [],
-    );
+    const entityToInsert = new OfferEntity(payload.marketType, payload.name);
     return this.offerDao.insert(entityToInsert);
   }
 

@@ -12,10 +12,9 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { JoiValidationPipe } from '../../shared/validator/joi-validation-pipe';
 import { CreateParkSchema } from '../../shared/validator/create-park.validator';
 import { ParkCreationPayload } from './park.payload';
-import { MarketType } from '../../shared/enum/market-type.enum';
 import { PaginatedQueryResult } from '../../shared/model/paginatedQueryResult';
 import { ElecGenParkEntity } from '../../shared/entities/elec-generating-park.entity';
-import {ElectricityOrigin} from "../../shared/enum/electricity-origin.enum";
+import { ElectricityOrigin } from '../../shared/enum/electricity-origin.enum';
 
 @Controller('park')
 @ApiTags('park')

@@ -39,11 +39,7 @@ export class ParkDao {
       this.elecGenParkEntityRepository
         .createQueryBuilder()
         .select('park')
-
         .from(ElecGenParkEntity, 'park')
-        //.leftJoinAndSelect('park.timeBlocks', 'timeBlock')
-        //.leftJoinAndSelect('timeBlock.offers', 'offer')
-
         .leftJoinAndSelect('park.timeBlocks', 'timeBlock')
         .leftJoinAndSelect('timeBlock.offers', 'offer')
         .where('park.electricityOrigin= :electricityOrigin', {

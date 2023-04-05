@@ -20,17 +20,14 @@ export class OfferEntity {
   public marketType: MarketType;
   @Column()
   public name: string;
-  // @Column()
-  // public timeBlocksIds: number[];
 
   @ManyToMany(() => TimeBlockEntity, (timeBlock) => timeBlock.offers)
   @JoinTable()
   timeBlocks: TimeBlockEntity[];
 
   //TODO: link offer to timeBlocks
-  constructor(marketType: MarketType, name: string, timeBlocksIds: number[]) {
+  constructor(marketType: MarketType, name: string) {
     this.marketType = marketType;
     this.name = name;
-    // this.timeBlocksIds = timeBlocksIds;
   }
 }
